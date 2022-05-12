@@ -1,13 +1,15 @@
 import React from 'react';
 import chair from '../../assets/images/chair.png';
 import Button from '../Shared/Button';
-import bg from '../../assets/images/bg.png';
+import bg from '../../assets/images/landing-bg.png';
 
 const Banner = () => {
     return (
         <section style={
             {
                 background: `url(${bg})`,
+                backgroundSize: '1400px 650px',
+                backgroundRepeat: "no-repeat",
             }
         }>
 
