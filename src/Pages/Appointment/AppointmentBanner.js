@@ -7,7 +7,7 @@ import bg from '../../assets/images/landing-bg.png';
 const AppointmentBanner = ({ date, setDate }) => {
 
     return (
-        <div class="hero min-h-screen "
+        <div className="hero min-h-screen "
             style={
                 {
                     background: `url(${bg})`,
@@ -15,8 +15,8 @@ const AppointmentBanner = ({ date, setDate }) => {
                     backgroundRepeat: "no-repeat",
                 }
             }>
-            <div class="hero-content flex-col lg:flex-row-reverse ">
-                <img src={chair} class="md:max-w-lg rounded-lg shadow-sm" alt='dentist chair' />
+            <div className="hero-content flex-col lg:flex-row-reverse ">
+                <img src={chair} className="md:max-w-lg rounded-lg shadow-sm" alt='dentist chair' />
                 <div className='shadow-md rounded-xl p-5 mr-10 ml-5 md:mt-0 mt-5'>
                     <DayPicker
                         mode="single"
