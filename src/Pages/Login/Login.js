@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { useSendPasswordResetEmail, useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import Loading from '../Shared/Loading';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
@@ -7,7 +7,10 @@ import { useForm } from 'react-hook-form';
 
 const Login = () => {
     const [signInWithGoogle, googleUser, googleLoading, googleError] = useSignInWithGoogle(auth);
+    
+
     const { register, formState: { errors }, handleSubmit } = useForm();
+
     let navigate = useNavigate();
     let location = useLocation();
     let from = location.state?.from?.pathname || "/";
@@ -24,7 +27,7 @@ const Login = () => {
 
     useEffect(() => {
         if (user || googleUser) {
-            
+
             navigate(from, { replace: true });
         }
     }, [user, googleUser, navigate, from]);
@@ -49,6 +52,8 @@ const Login = () => {
 
 
 
+
+
     return (
         <div className="container mx-auto px-4 flex justify-center items-center">
             <div className="card w-96 bg-base-100 shadow-xl">
@@ -61,6 +66,7 @@ const Login = () => {
                                 <span className="label-text">Email?</span>
                             </label>
                             <input
+
                                 type="email"
                                 placeholder="Your Email"
                                 className="input input-bordered w-full max-w-xs"
@@ -108,6 +114,8 @@ const Login = () => {
                         {signInError}
                         <input className='btn w-full max-w-xs' type="submit" value='Login' />
                     </form>
+                    <p className='text-center'><small>For password? <button className='text-primary' >Rest Password</button></small></p>
+
                     <p className='text-center'><small>New to Doctors Portal? <Link className='text-primary' to='/signup'>Create New Account</Link></small></p>
                     <div className="divider">OR</div>
                     <button className="btn btn-outline" onClick={() => signInWithGoogle()}>Continue With Google</button>
