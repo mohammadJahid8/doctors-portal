@@ -6,7 +6,7 @@ import { toast } from 'react-toastify';
 
 
 
-const BookingModal = ({ treatment, date, setTreatment }) => {
+const BookingModal = ({ treatment, date, setTreatment, refetch }) => {
     const [user, loading, error] = useAuthState(auth);
 
     const { _id, name, slots } = treatment;
@@ -46,6 +46,7 @@ const BookingModal = ({ treatment, date, setTreatment }) => {
                 else {
                     toast.error(`Already have an appointment on, ${data.booking?.date} at ${data.booking?.slot}`);
                 }
+                refetch();
                 //close the modal
                 setTreatment(null);
             })

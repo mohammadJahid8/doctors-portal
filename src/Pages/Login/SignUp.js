@@ -4,17 +4,11 @@ import auth from '../../firebase.init';
 import { useForm } from "react-hook-form";
 import Loading from '../Shared/Loading';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import useToken from '../../hooks/useToken';
 
 const SignUp = () => {
     const [signInWithGoogle, googleUser, googleLoading, googleError] = useSignInWithGoogle(auth);
     const [updateProfile, updating, updateError] = useUpdateProfile(auth);
-    
-
-    let navigate = useNavigate();
-    let location = useLocation();
-    let from = location.state?.from?.pathname || "/";
-
-    const { register, formState: { errors }, handleSubmit } = useForm();
     const [
         createUserWithEmailAndPassword,
         user,
@@ -22,13 +16,24 @@ const SignUp = () => {
         error,
     ] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
 
+    
+
+    const [token] = useToken(user || googleUser);
+
+
+    let navigate = useNavigate();
+    let location = useLocation();
+    let from = location.state?.from?.pathname || "/";
+
+    const { register, formState: { errors }, handleSubmit } = useForm();
+
     let signInError;
 
     useEffect(() => {
-        if (user || googleUser) {
+        if (token) {
             navigate(from, { replace: true });
         }
-    }, [user, googleUser, navigate, from]);
+    }, [token, navigate, from]);
 
 
     if (loading || googleLoading || updating) {
@@ -41,11 +46,11 @@ const SignUp = () => {
 
 
     const onSubmit = async data => {
-        console.log(data);
+        
         await createUserWithEmailAndPassword(data.email, data.password);
         await updateProfile({ displayName: data.name });
-        console.log('updated');
-        navigate('/appointment');
+        
+        
     }
 
     return (
