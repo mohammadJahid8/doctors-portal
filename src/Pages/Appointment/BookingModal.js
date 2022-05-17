@@ -29,7 +29,7 @@ const BookingModal = ({ treatment, date, setTreatment, refetch }) => {
 
         }
 
-        fetch('http://localhost:5000/booking', {
+        fetch('https://morning-gorge-66477.herokuapp.com/booking', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

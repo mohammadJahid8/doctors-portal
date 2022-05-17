@@ -1,6 +1,6 @@
 import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { Link, Outlet } from 'react-router-dom';
+import { Link, NavLink, Outlet } from 'react-router-dom';
 import auth from '../../firebase.init';
 import useAdmin from '../../hooks/useAdmin';
 
@@ -21,9 +21,13 @@ const Dashboard = () => {
                 <ul class="menu p-4 overflow-y-auto w-48 bg-base-100 text-base-content">
                     {/* <!-- Sidebar content here --> */}
                     <li><Link to='/dashboard'>My Appointments</Link></li>
-                    <li><Link to='/dashboard/review'>My Reviews</Link></li>
-                    <li><Link to='/dashboard/history'>My History</Link></li>
-                    {admin && <li><Link to='/dashboard/users'>All users</Link></li>}
+                    <li><NavLink to='/dashboard/review'>My Reviews</NavLink></li>
+                    <li><NavLink to='/dashboard/history'>My History</NavLink></li>
+                    {admin && <>
+                        <li><NavLink to='/dashboard/users'>All users</NavLink></li>
+                        <li><NavLink to='/dashboard/addDoctor'>Add a doctor</NavLink></li>
+                        <li><NavLink to='/dashboard/manageDoctor'>Manage doctors</NavLink></li>
+                    </>}
                 </ul>
 
             </div>

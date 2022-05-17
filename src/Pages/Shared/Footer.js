@@ -10,8 +10,8 @@ const Footer = () => {
                 backgroundSize: 'cover',
             }}
         >
-            <div className="container mx-auto md:pl-40">
-                <div className='footer mb-16'>
+            <div className="container mx-auto">
+                <div className='footer mb-16 lg:flex lg:justify-around'>
                     <div>
                         <span className="footer-title">Services</span>
                         <a className="link link-hover">Branding</a>
