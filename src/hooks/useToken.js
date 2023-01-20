@@ -1,32 +1,37 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from "react";
 
 const useToken = (user) => {
-    const [token, setToken] = useState('');
+  const [token, setToken] = useState("");
 
-    useEffect(() => {
-        const email = user?.user?.email;
+  useEffect(() => {
+    const email = user?.user?.email;
 
-        const currentUser = { email: email };
-        if (email) {
-            fetch(`https://morning-gorge-66477.herokuapp.com/user/${email}`, {
-                method: 'PUT',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(currentUser),
-            })
-                .then(res => res.json())
-                .then(data => {
+    console.log(email);
 
-                    const accessToken = data.token;
-                    localStorage.setItem('accessToken', accessToken);
-                    setToken(accessToken);
-                })
+    const currentUser = { email: email };
+    if (email) {
+      fetch(
+        // `https://morning-gorge-66477.herokuapp.com/user/${email}`
+        `https://doctors-portal-server2.onrender.com/user/${email}`,
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(currentUser),
         }
+      )
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+          const accessToken = data.token;
+          localStorage.setItem("accessToken", accessToken);
+          setToken(accessToken);
+        });
+    }
+  }, [user]);
 
-    }, [user]);
-
-    return [token];
+  return [token];
 };
 
 export default useToken;
