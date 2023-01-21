@@ -13,7 +13,7 @@ const AddDoctors = () => {
   } = useForm();
 
   const { data: services, isLoading } = useQuery("services", () =>
-    fetch("https://doctors-portal-server2.onrender.com/service").then((res) =>
+    fetch("https://doctors-portal-server3.onrender.com/service").then((res) =>
       res.json()
     )
   );
@@ -42,7 +42,7 @@ const AddDoctors = () => {
             img: img,
           };
           //sending to database
-          fetch("https://doctors-portal-server2.onrender.com/doctor", {
+          fetch("https://doctors-portal-server3.onrender.com/doctor", {
             method: "POST",
             headers: {
               "Content-Type": "application/json",

@@ -11,7 +11,7 @@ const ManageDoctors = () => {
     isLoading,
     refetch,
   } = useQuery("doctors", () =>
-    fetch("https://doctors-portal-server2.onrender.com/doctor", {
+    fetch("https://doctors-portal-server3.onrender.com/doctor", {
       headers: {
         authorization: "Bearer " + localStorage.getItem("accessToken"),
       },

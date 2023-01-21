@@ -13,7 +13,7 @@ const MyAppointments = () => {
     if (user) {
       fetch(
         // `https://morning-gorge-66477.herokuapp.com/booking?patient=${user?.email}`
-        `https://doctors-portal-server2.onrender.com/booking?patient=${user?.email}`,
+        `https://doctors-portal-server3.onrender.com/booking?patient=${user?.email}`,
         {
           method: "GET",
           headers: {

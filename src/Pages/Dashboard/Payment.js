@@ -14,7 +14,7 @@ const stripePromise = loadStripe(
 const Payment = () => {
   const { id } = useParams();
 
-  const url = `https://doctors-portal-server2.onrender.com/booking/${id}`;
+  const url = `https://doctors-portal-server3.onrender.com/booking/${id}`;
 
   const { data: appointment, isLoading } = useQuery(["booking", id], () =>
     fetch(url, {

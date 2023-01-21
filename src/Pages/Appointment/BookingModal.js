@@ -28,7 +28,7 @@ const BookingModal = ({ treatment, date, setTreatment, refetch }) => {
 
     fetch(
       // 'https://morning-gorge-66477.herokuapp.com/booking'
-      "https://doctors-portal-server2.onrender.com/booking",
+      "https://doctors-portal-server3.onrender.com/booking",
       {
         method: "POST",
         headers: {

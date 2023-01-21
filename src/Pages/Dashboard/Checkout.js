@@ -9,7 +9,7 @@ const Checkout = ({ appointment }) => {
   const [clientSecret, setClientSecret] = useState("");
 
   useEffect(() => {
-    fetch("https://doctors-portal-server2.onrender.com/create-payment-intent", {
+    fetch("https://doctors-portal-server3.onrender.com/create-payment-intent", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

@@ -9,7 +9,7 @@ const useAdmin = (user) => {
     if (email) {
       fetch(
         // `https://morning-gorge-66477.herokuapp.com/admin/${email}`
-        `https://doctors-portal-server2.onrender.com/admin/${email}`,
+        `https://doctors-portal-server3.onrender.com/admin/${email}`,
         {
           method: "GET",
           headers: {

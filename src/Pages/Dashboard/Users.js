@@ -11,7 +11,7 @@ const Users = () => {
   } = useQuery("users", async () =>
     fetch(
       // 'https://morning-gorge-66477.herokuapp.com/user'
-      "https://doctors-portal-server2.onrender.com/user",
+      "https://doctors-portal-server3.onrender.com/user",
       {
         method: "GET",
         headers: {

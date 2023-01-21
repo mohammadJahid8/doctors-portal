@@ -19,7 +19,7 @@ const AvailableAppointments = ({ date }) => {
   } = useQuery(["available", formatedDate], () =>
     fetch(
       // `https://morning-gorge-66477.herokuapp.com/available?date=${formatedDate}`
-      `https://doctors-portal-server2.onrender.com/available?date=${formatedDate}`
+      `https://doctors-portal-server3.onrender.com/available?date=${formatedDate}`
     ).then((res) => res.json())
   );
 
